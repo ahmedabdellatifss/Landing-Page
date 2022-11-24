@@ -67,26 +67,22 @@ function generateNav(){
 
 window.addEventListener("load" ,generateNav )
 
-// Add class 'active' to section when near top of viewport
-
+// Add class 'active' to section when near top of viewport by Using getBoundingClientRect method
 
 window.addEventListener("scroll" , function(){
     let links = document.querySelectorAll("a.menu__link");
     let curr_ele = "";
-    sections.forEach(section=>{
-        const sectionTop = section.offsetTop;
-        const sectionHight = section.clientHeight;
-        section.classList.remove("your-active-class");
-        if(scrollY >= (sectionTop - sectionHight /3) ){
+    sections.forEach(section=>{ 
+        let DOMRec = section.getBoundingClientRect();
+        if(DOMRec.top < 600 ){
             curr_ele = section.dataset.nav
             section.classList.add("your-active-class");
+        }else{
+            section.classList.remove("your-active-class");
         }
     });
     
     links.forEach(link=>{
-        console.log(link.innerHTML)
-        console.log("##")
-        console.log(curr_ele)
         link.classList.remove("active");
         if(link.innerHTML === curr_ele){
             link.classList.add("active");
