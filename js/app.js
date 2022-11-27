@@ -26,6 +26,7 @@ const nav = document.getElementById("navbar__list");
 const fragment = document.createDocumentFragment();
 const sections = document.querySelectorAll('section');
 
+
 /**
  * End Global Variables
  * Start Helper Functions
@@ -41,6 +42,7 @@ const sections = document.querySelectorAll('section');
  * 
 */
 
+
 // build the nav
 function generateNav(){
     for(const section of sections){
@@ -50,8 +52,7 @@ function generateNav(){
         let anchor = document.createElement('a');
         anchor.classList.add('menu__link');
         anchor.setAttribute('href' ,`#${id}`);
-        anchor.textContent = title
-
+        anchor.textContent = title;
         // smoth scroll
         anchor.addEventListener("click" , function(e){
             e.preventDefault();
@@ -74,7 +75,7 @@ window.addEventListener("scroll" , function(){
     let curr_ele = "";
     sections.forEach(section=>{ 
         let DOMRec = section.getBoundingClientRect();
-        if(DOMRec.top < 600 ){
+        if(DOMRec.top < this.window.innerHeight &&  DOMRec.top > 0){
             curr_ele = section.dataset.nav
             section.classList.add("your-active-class");
         }else{
@@ -92,7 +93,7 @@ window.addEventListener("scroll" , function(){
 });
 
 // Scroll to anchor ID using scrollTO event
-
+// smoth scroll
 
 /**
  * End Main Functions
@@ -103,5 +104,4 @@ window.addEventListener("scroll" , function(){
 // Build menu 
 
 // Scroll to section on link click
-
 // Set sections as active

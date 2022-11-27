@@ -18,6 +18,11 @@ body {
     color: #fff;
 }
 
+/* html{
+    scroll-behavior: smooth;
+} */
+
+
 
 /* Typeography General*/
 h1 {
@@ -88,9 +93,8 @@ section {
     transition: ease 0.3s all;
 }
 .navbar__menu .menu__link.active {
-    background: crimson;
+    background: rgb(20, 220, 193);
     color: #fff;
-    border-radius: 6px;
     transition: ease 0.3s all;
 }
 
